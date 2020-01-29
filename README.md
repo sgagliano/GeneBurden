@@ -1,7 +1,7 @@
 # GeneBurden
-From minimac4 BCF/VCF.gz input, create a gene burden VCF.gz file
+From minimac4 BCF/VCF.gz input, create a region/gene burden VCF.gz file
 
-The gene burden is the sum of alternate allele dosages for a specified set of variants (e.g. putative loss of function variants, LoF within a gene)
+The region/gene burden in this script is defined as the sum of alternate allele dosages for a specified set of variants (e.g. putative loss of function variants, LoF within each region/gene)
 
 ### Example: 
 
