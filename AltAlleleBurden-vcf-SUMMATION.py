@@ -95,6 +95,13 @@ def MakeDummy(inGZVCF, outGZAnno, minR2, maxAF, Map):
                     raise Exception('Input VCF/BCF file must have non-empty variant ID column.')
                 if vcfrow.id not in variants:
                     continue
+		#create own id instead of vcfrow.id (e.g. to match id in --BED):
+		#if vcfrow.id is None:
+                #    myid = '{}:{}:{}:{}'.format(vcfrow.chrom, vcfrow.pos, vcfrow.ref, vcfrow.alts[0])
+                #else:
+                #    myid = vcfrow.id
+                #if myid not in variants:
+                #    continue
                 AFvalue = vcfrow.info['AF'] # We assume all entries are bi-allelic
                 R2value = float(vcfrow.info['R2'])
                 if R2value <= minR2 or AFvalue >= maxAF:
