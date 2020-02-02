@@ -1,7 +1,8 @@
 # GeneBurden
 From minimac4 BCF/VCF.gz input, create a region/gene burden VCF.gz file
 
-The region/gene burden in this script is defined as the sum of alternate allele dosages for a specified set of variants (e.g. putative loss of function variants, LoF within each region/gene)
+The region/gene burden in this script is defined as the sum of alternate allele dosages for a specified set of variants (e.g. putative loss of function variants, LoF within each region/gene).
+
 
 ### Example: 
 
@@ -20,3 +21,7 @@ See the `SAIGE/` directory for scripts for ```step1``` (compute the GRM and vari
 
 For more information refer to SAIGE on GitHub: https://github.com/weizhouUMICH/SAIGE and the publication Zhou _et al._ Nature Genetics 50, 1335–1341 (2018)
 
+
+###### Notes on input data
+This script supports VCF.gz and BCF formats (both need to be indexed).
+If your input file is in SAV format, convert to BCF using `sav2bcf.sh`
