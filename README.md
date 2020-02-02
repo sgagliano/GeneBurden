@@ -24,4 +24,7 @@ For more information refer to SAIGE on GitHub: https://github.com/weizhouUMICH/S
 
 ###### Notes on input data
 This script supports VCF.gz and BCF formats (both need to be indexed).
-If your input file is in SAV format, convert to BCF using `sav2bcf.sh`
+
+If your input file is in SAV format, convert to BCF using `sav2bcf.sh` 
+
+Optional: use output from `make_regions_file.py` to only extract variants in regions of interest for the burden test. See the notes in the script for details.
