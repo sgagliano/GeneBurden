@@ -1,5 +1,5 @@
 # GeneBurden
-From minimac4 BCF/VCF.gz input, create a region/gene burden VCF.gz file
+From <a href="https://github.com/statgen/Minimac4">minimac4</a> BCF/VCF.gz input, create a region/gene burden VCF.gz file
 
 The region/gene burden in this script is defined as the sum of alternate allele dosages for a specified set of variants (e.g. putative loss of function variants, LoF within each region/gene).
 
@@ -19,12 +19,12 @@ Hint: to create a `--BED` file of LoF variants (as defined by VEP) refer to `ext
 
 See the `SAIGE/` directory for scripts for ```step1``` (compute the GRM and variance ratio using a set of high-quality pruned SNPs) and ```step2``` (input the output from `--outGZAnno` to test each region/gene for association with the phenotype of interest)
 
-For more information refer to SAIGE on GitHub: https://github.com/weizhouUMICH/SAIGE and the publication Zhou _et al._ Nature Genetics 50, 1335–1341 (2018)
+For more information refer to <a href="https://github.com/weizhouUMICH/SAIGE">SAIGE</a> Zhou _et al._ Nature Genetics 50, 1335–1341 (2018)
 
 
 ###### Notes on input data
 This script supports VCF.gz and BCF formats (both need to be indexed).
 
-If your input file is in SAV format, convert to BCF using `sav2bcf.sh` 
+If your input file is in <a href="https://github.com/statgen/savvy">SAV</a> format, convert to BCF using `sav2bcf.sh` 
 
 Optional: use output from `make_regions_file.py` to only extract variants in regions of interest for the burden test. See the notes in the script for details.
