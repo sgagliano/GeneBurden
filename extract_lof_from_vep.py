@@ -10,6 +10,7 @@ argparser.add_argument('-o', '--output', metavar = 'file', dest = 'out_file', re
 if __name__ == '__main__':
     args = argparser.parse_args()
     genes = dict()
+    ac = dict()
     with pysam.VariantFile(args.in_VCF) as ifile:
         csq_meta = ifile.header.info.get('CSQ', None)
         if csq_meta is None:
@@ -21,6 +22,7 @@ if __name__ == '__main__':
 
         for record in ifile.fetch():
             variant_id = '{}:{}:{}:{}'.format(record.contig, record.pos, record.ref, record.alts[0]) # assume only bi-allelic variants
+            ac[variant_id] = record.info['AC'][0]
             for csq in record.info['CSQ']:
                 csq = dict(zip(csq_header, csq.split('|')))
                 consequences = set(csq['Consequence'].split('&'))
@@ -36,5 +38,5 @@ if __name__ == '__main__':
     with open(args.out_file, 'wt') as ofile:
         for gene_id, gene in genes.items():
             for variant, consequences in gene['variants'].items():
-                ofile.write(f'{variant}\t{gene["name"]}\t{gene_id}\t{",".join(consequences)}\n')
+                ofile.write(f'{variant}\t{gene["name"]}\t{gene_id}\t{",".join(consequences)}\t{ac[variant]}\n')
 
