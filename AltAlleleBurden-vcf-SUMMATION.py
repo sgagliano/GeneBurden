@@ -102,7 +102,7 @@ def MakeDummy(inGZVCF, outGZAnno, minR2, maxAF, Map):
                 #    myid = vcfrow.id
                 #if myid not in variants:
                 #    continue
-                AFvalue = vcfrow.info['AF'] # We assume all entries are bi-allelic
+                AFvalue = vcfrow.info['AF'] if 'AF' in vcfrow.info else vcfrow.info['AC'][0]/vcfrow.info['AN'] # We assume all entries are bi-allelic
                 R2value = float(vcfrow.info['R2'])
                 if R2value <= minR2 or AFvalue >= maxAF:
                     continue
