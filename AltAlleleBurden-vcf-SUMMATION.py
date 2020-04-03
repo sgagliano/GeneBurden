@@ -65,7 +65,7 @@ def MakeDummy(inGZVCF, outGZAnno, minR2, maxAF, Map):
             oz.write('{}\n'.format(line))
 
         IDList = list(vfile.header.samples)
-        print '{} individual(s) in VCF input file.'.format(len(IDList))
+        print(f'{len(IDlist)} individual(s) in VCF input file.')
 
         oz.write('#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\tFORMAT\t{}\n'.format('\t'.join(IDList)))
 
@@ -86,7 +86,8 @@ def MakeDummy(inGZVCF, outGZAnno, minR2, maxAF, Map):
             chrom = chromset.pop()
 
             # extract all variants in that region
-	    print 'Processing {} variant(s) in {} gene in {}:{}-{} region.'.format(len(variants), gene_name, chrom, start, end)
+	    #print 'Processing {} variant(s) in {} gene in {}:{}-{} region.'.format(len(variants), gene_name, chrom, start, end)
+	    print(f'Processing {len(variants)} variant(s) {gene_name} in gene in {chrom,}:{start}-{end} region.')
             n_variants_processed = 0
             n_variants_total = 0
             for vcfrow in vfile.fetch(chrom, start, end):
@@ -114,8 +115,9 @@ def MakeDummy(inGZVCF, outGZAnno, minR2, maxAF, Map):
                 oz.write('{}\t{}\t{}\tN\t<ALT>\t.\tPASS\tN={}\tDS\t{}\n'.format(chrom, start, gene_name, n_variants_processed, '\t'.join([str(ds) for ds in omni_dosage])))
 
 		oz.flush()
-            print 'Finished processing {} gene in {}:{}-{} region. Fetched {} variant(s) from VCF, included {} in burden.'.format(gene_name, chrom, start, end, n_variants_total, n_variants_processed)
-
+            #print 'Finished processing {} gene in {}:{}-{} region. Fetched {} variant(s) from VCF, included {} in burden.'.format(gene_name, chrom, start, end, n_variants_total, n_variants_processed)
+	     print(f'Finished processing {gene_name} gene in {chrom}:{start}-{end} region. Fetched {n_variants_total} variant(s) from VCF, included {n_variants_processed} in burden.')
+	
 
 if __name__ == '__main__':
    args = argparser.parse_args()
