@@ -1,3 +1,4 @@
+##Summation of dosages for variants of interest per gene to create a gene burden
 ##Updates:
 ##Use AF rather than MAF, b/c it is the alt allele that is the LoF
 ##Apply minumum default AF, needs to be greater than >0.00001 b/c low allele counts are unstable --> removed this b/c found that didn't make a difference in the association test
