@@ -1,5 +1,5 @@
 ##If using GT (from `GT-AltAlleleBurden.py`) rather than dosage summation (from `AltAlleleBurden-vcf-SUMMATION.py`), 
-##add line `vcfField="GT"` to SPAGMMATtest() since default is `DS`
+##unhash line `vcfField="GT"` to SPAGMMATtest() since default is `DS`
 
 options(stringsAsFactors=F)
 
@@ -45,13 +45,12 @@ try(if(length(which(opt == "")) > 0) stop("Missing arguments"))
 SPAGMMATtest(savFile=opt$savFile,
              savFileIndex=opt$savFileIndex,
              chrom=opt$chrom,
-             start=opt$start,
-             end=opt$end,       
+             #vcfField="GT",
+             #start=opt$start,
+             #end=opt$end,       
              sampleFile=opt$sampleFile,
              GMMATmodelFile=opt$GMMATmodelFile,
              varianceRatioFile=opt$varianceRatioFile,
              SAIGEOutputFile=opt$SAIGEOutputFile,
              numLinesOutput=opt$numLinesOutput,
              IsOutputAFinCaseCtrl=TRUE
-
-##start and end can be hashed out, and then no longer needed in `step2_SPATests_sav_savvy.sh`
