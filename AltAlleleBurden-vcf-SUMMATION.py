@@ -6,7 +6,7 @@
 # In[98]:
 
 import sys
-sys.path.insert(0, '/net/snowwhite/home/sarahgag/.local/lib/python2.7/site-packages/')
+#sys.path.insert(0, '/net/snowwhite/home/sarahgag/.local/lib/python2.7/site-packages/')
 import gzip
 import argparse
 import pysam
