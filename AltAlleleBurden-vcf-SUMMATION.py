@@ -51,10 +51,14 @@ def MakeDummy(inGZVCF, outGZAnno, minR2, maxAF, Map):
     # END
 
     n_variants = [len(variants) for variants in genes_all.values()]
-    print '{} gene(s) and {} variant(s) in BED input file.'.format(len(genes_all), sum(n_variants))
-    print 'Avg. no. of variant(s) per gene = {}'.format(sum(n_variants)/ float(len(genes_all)))
-    print 'Max. no. of variant(s) in gene = {} ({} gene(s))'.format(max(n_variants), n_variants.count(max(n_variants)))
-    print 'Min. no. of variant(s) in gene = {} ({} gene(s))'.format(min(n_variants), n_variants.count(min(n_variants)))
+    print(f'{len(genes_all)} gene(s) and {sum(n_variants)} variant(s) in BED input file.')
+    print(f'Avg. no. of variant(s) per gene = {sum(n_variants)/ float(len(genes_all))}')
+    print(f'Max. no. of variant(s) in gene = {max(n_variants)} ({float(len(genes_all))} gene(s))')	  
+    print(f'Min. no. of variant(s) in gene = {min(n_variants)} ({n_variants.count(min(n_variants))} gene(s))')
+    #print '{} gene(s) and {} variant(s) in BED input file.'.format(len(genes_all), sum(n_variants))
+    #print 'Avg. no. of variant(s) per gene = {}'.format(sum(n_variants)/ float(len(genes_all)))
+    #print 'Max. no. of variant(s) in gene = {} ({} gene(s))'.format(max(n_variants), n_variants.count(max(n_variants)))
+    #print 'Min. no. of variant(s) in gene = {} ({} gene(s))'.format(min(n_variants), n_variants.count(min(n_variants)))
 
     # BEGIN: This part aggragates dosages
     with closing(pysam.VariantFile(inGZVCF, 'r')) as vfile, gzip.GzipFile(outGZAnno, 'w') as oz:
@@ -65,7 +69,7 @@ def MakeDummy(inGZVCF, outGZAnno, minR2, maxAF, Map):
             oz.write('{}\n'.format(line))
 
         IDList = list(vfile.header.samples)
-        print(f'{len(IDlist)} individual(s) in VCF input file.')
+        print(f'{len(IDList)} individual(s) in VCF input file.')
 
         oz.write('#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\tFORMAT\t{}\n'.format('\t'.join(IDList)))
 
