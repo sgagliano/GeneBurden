@@ -1,3 +1,6 @@
+##If using GT (from `GT-AltAlleleBurden.py`) rather than dosage summation (from `AltAlleleBurden-vcf-SUMMATION.py`), 
+##add line `vcfField="GT"` to SPAGMMATtest() since default is `DS`
+
 options(stringsAsFactors=F)
 
 library(SAIGE, lib.loc="/net/snowwhite/home/sarahgag/R/x86_64-pc-linux-gnu-library/3.3") ##INSERT YOUR PATH TO SAIGE HERE
@@ -51,4 +54,4 @@ SPAGMMATtest(savFile=opt$savFile,
              numLinesOutput=opt$numLinesOutput,
              IsOutputAFinCaseCtrl=TRUE
 
-
+##start and end can be hashed out, and then no longer needed in `step2_SPATests_sav_savvy.sh`
