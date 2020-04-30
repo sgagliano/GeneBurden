@@ -86,10 +86,11 @@ def MakeDummy(inGZVCF, outGZAnno, maxAF, Map):
             n_variants_total = 0
             for vcfrow in vfile.fetch(chrom, start, end):
                 n_variants_total += 1
-                if vcfrow.id is None:
-		    myid = '{}:{}:{}:{}'.format(vcfrow.chrom, vcfrow.pos, vcfrow.ref, vcfrow.alts[0])
-		else:
-		    myid = vcfrow.id
+		myid = '{}:{}:{}:{}'.format(vcfrow.chrom, vcfrow.pos, vcfrow.ref, vcfrow.alts[0])
+                #if vcfrow.id is None:
+		#    myid = '{}:{}:{}:{}'.format(vcfrow.chrom, vcfrow.pos, vcfrow.ref, vcfrow.alts[0])
+		#else:
+		#    myid = vcfrow.id
 		if myid not in variants:
 		    continue
                 AFvalue = vcfrow.info['AF'] if 'AF' in vcfrow.info else vcfrow.info['AC'][0]/vcfrow.info['AN'] # We assume all entries are bi-allelic
