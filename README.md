@@ -13,6 +13,10 @@ Include rare variants with an imputation R2 of at least 0.1 (`--minR2 0.1`) and 
 
 `python AltAlleleBurden-vcf-SUMMATION.py --inGZVCF ${vcffile} --outGZAnno chr${chrom}.Burden.vcf.gz --minR2 0.1 --maxAF 0.005 --BED chr${chrom}.LoF.list.txt`
 
+Note: two versions of the region/gene burden test:
+`AltAlleleBurden-vcf-SUMMATION.py`: Summation of dosages for variants of interest
+`GT-AltAlleleBurden.py`: If no allele of interest in gene assign person as 0/0, if at least one allele of interest in the gene then 0/1
+
 Hint: to create a `--BED` file of LoF variants (as defined by VEP) refer to `extract_lof_from_vep.py`
 
 ##### Test the regions/genes for association with your trait of interest
