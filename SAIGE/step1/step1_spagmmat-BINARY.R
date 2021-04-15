@@ -14,7 +14,8 @@ trait = as.character(args[1])
 cat("trait", trait)
 
 library(Rcpp)
-library(SAIGE, lib.loc="/net/snowwhite/home/sarahgag/R/x86_64-pc-linux-gnu-library/3.3") #REPLACE CONTENT IN QUOTES YOUR PATH TO SAIGE
+library(SAIGE, lib.loc="/net/snowwhite/home/sarahgag/R/x86_64-pc-linux-gnu-library/4.0") #REPLACE CONTENT IN QUOTES YOUR PATH TO SAIGE
+#devtools::install_github("weizhouUMICH/SAIGE") #how I downloaded SAIGE
 
 mainPath = "/net/inpsyght/disk2/sarahgag/singlevariant" #REPLACE CONTENT IN QUOTES TO YOUR MAIN PATH (where step1 and step2 are sub-directories)
 
@@ -25,7 +26,7 @@ outputFolder=paste0(mainPath, "/step1/output/")
 modelOut=paste0(outputFolder,trait)
 
 
-genoFile = "<INSERT PATH TO PLINK FILES, OMIT THE BED/BIM/FAM SUFFIX WITH PRUNED SET OF GENOME-WIDE HIGH QUALITY VARIANTS"
+genoFile = "<INSERT PATH TO PLINK FILES, OMIT THE BED/BIM/FAM SUFFIX WITH PRUNED SET OF GENOME-WIDE HIGH QUALITY VARIANTS>"
 
 
 fitNULLGLMM(plinkFile = genoFile,
@@ -41,7 +42,7 @@ fitNULLGLMM(plinkFile = genoFile,
                 tolPCG=1e-5,
                 maxiterPCG=500,
                 nThreads = 32,
-                Cutoff = 2,
+                #Cutoff = 2,
                 numMarkers = 100,
                 skipModelFitting = FALSE,
                 outputPrefix = modelOut,
