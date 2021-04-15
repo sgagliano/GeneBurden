@@ -15,7 +15,12 @@ cat("trait", trait)
 
 library(Rcpp)
 library(SAIGE, lib.loc="/net/snowwhite/home/sarahgag/R/x86_64-pc-linux-gnu-library/4.0") #REPLACE CONTENT IN QUOTES YOUR PATH TO SAIGE
-#how I downloaded SAIGE:
+#how I installed SAIGE:
+#create virtual environment 
+#python3 -m venv saige
+#source saige/bin/activate
+#python3 -m pip install cget
+#open R within python virtual environment in which cget has been installed
 #library('devtools')
 #devtools::install_github("leeshawn/MetaSKAT") 
 #devtools::install_github("weizhouUMICH/SAIGE") 
