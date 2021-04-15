@@ -15,7 +15,10 @@ cat("trait", trait)
 
 library(Rcpp)
 library(SAIGE, lib.loc="/net/snowwhite/home/sarahgag/R/x86_64-pc-linux-gnu-library/4.0") #REPLACE CONTENT IN QUOTES YOUR PATH TO SAIGE
-#devtools::install_github("weizhouUMICH/SAIGE") #how I downloaded SAIGE
+#how I downloaded SAIGE:
+#library('devtools')
+#devtools::install_github("leeshawn/MetaSKAT") 
+#devtools::install_github("weizhouUMICH/SAIGE") 
 
 mainPath = "/net/inpsyght/disk2/sarahgag/singlevariant" #REPLACE CONTENT IN QUOTES TO YOUR MAIN PATH (where step1 and step2 are sub-directories)
 
