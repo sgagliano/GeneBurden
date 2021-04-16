@@ -11,6 +11,7 @@ export LDFLAGS="-L${FLAGPATH}/lib"
 export CPPFLAGS="-I${FLAGPATH}/include"
 
 devtools::install_github("leeshawn/MetaSKAT") #in R
+#if error, run `export TAR="/bin/tar"` in terminal and then re-install
 
 #install SAIGE from source code
 src_branch=master
