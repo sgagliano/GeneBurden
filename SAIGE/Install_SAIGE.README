@@ -1,0 +1,24 @@
+#download anaconda, and init
+#conda init
+
+#download environment-RSAIGE.yml from SAIGE GitHub, and then run:
+conda env create -f environment-RSAIGE.yml
+
+#activate the conda SAIGE environment
+conda activate RSAIGE
+FLAGPATH=`which python | sed 's|/bin/python$||'`
+export LDFLAGS="-L${FLAGPATH}/lib"
+export CPPFLAGS="-I${FLAGPATH}/include"
+
+devtools::install_github("leeshawn/MetaSKAT") #in R
+
+#install SAIGE from source code
+src_branch=master
+repo_src_url=https://github.com/weizhouUMICH/SAIGE
+git clone --depth 1 -b $src_branch $repo_src_url
+
+mkdir /home/gsarah/anaconda3/envs/RSAIGE/lib/R/library/SAIGE
+R CMD INSTALL SAIGE --library=/home/gsarah/anaconda3/envs/RSAIGE/lib/R/library/SAIGE
+
+#test in R
+library(SAIGE, lib.loc="/home/gsarah/anaconda3/envs/RSAIGE/lib/R/library/SAIGE")
